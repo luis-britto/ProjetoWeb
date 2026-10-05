@@ -1,4 +1,4 @@
-# Gestão Ás Terraplanagem
+# Gestão As Terraplanagem
 
 Sistema web para gestão operacional de máquinas e obras de terraplanagem.
 
