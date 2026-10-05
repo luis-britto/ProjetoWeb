@@ -1,372 +1,336 @@
-# [Nome do Projeto]
+# Gestão Ás Terraplanagem
 
-> Substitua os trechos entre colchetes `[ ]` pelas informações reais do trabalho. Remova esta nota e as demais orientações em *itálico* antes da entrega.
+Sistema web para gestão operacional de máquinas e obras de terraplanagem.
 
-[![Status](https://img.shields.io/badge/status-[em_desenvolvimento]-yellow)]()
-[![Versão](https://img.shields.io/badge/versão-[0.1.0]-blue)]()
-[![Licença](https://img.shields.io/badge/licença-[acadêmica]-lightgrey)]()
+![Status](https://img.shields.io/badge/status-em_desenvolvimento-yellow)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-1.0.0-blue)
+![Licença](https://img.shields.io/badge/licen%C3%A7a-acad%C3%AAmica-lightgrey)
 
-**Instituição:** [Nome da instituição]  
-**Curso:** [Nome do curso]  
-**Disciplina:** [Nome da disciplina]  
-**Turma / Semestre:** [Ex.: 2026.2]  
-**Professor(a):** [Nome completo]  
-**Status do projeto:** [Protótipo / MVP / Em desenvolvimento / Concluído]
+## Informações do projeto
+
+* **Instituição:** UniCEUB - Centro Universitário de Brasília
+* **Curso:** Análise e Desenvolvimento de Sistemas
+* **Disciplina:** Desenvolvimento Web (Python + Django)
+* **Semestre:** 2026.2
+* **Professor:** Felippe Pires Ferreira
+* **Status:** Em desenvolvimento
 
 ---
 
 ## Sumário
 
-- [1. Descrição do projeto](#1-descrição-do-projeto)
-- [2. Funcionalidades](#2-funcionalidades)
-- [3. Demonstração](#3-demonstração)
-- [4. Tecnologias utilizadas](#4-tecnologias-utilizadas)
-- [5. Arquitetura](#5-arquitetura)
-- [6. Organização dos diretórios](#6-organização-dos-diretórios)
-- [7. Participantes](#7-participantes)
-- [8. Como executar](#8-como-executar)
-- [9. Configuração](#9-configuração)
-- [10. Testes](#10-testes)
-- [11. Uso de inteligência artificial](#11-uso-de-inteligência-artificial)
-- [12. Contribuição e fluxo de trabalho](#12-contribuição-e-fluxo-de-trabalho)
-- [13. Histórico de versões](#13-histórico-de-versões)
-- [14. Limitações e próximos passos](#14-limitações-e-próximos-passos)
-- [15. Licença, referências e contato](#15-licença-referências-e-contato)
+1. [Descrição do projeto](#1-descrição-do-projeto)
+2. [Objetivos](#2-objetivos)
+3. [Funcionalidades](#3-funcionalidades)
+4. [Demonstração](#4-demonstração)
+5. [Tecnologias utilizadas](#5-tecnologias-utilizadas)
+6. [Arquitetura](#6-arquitetura)
+7. [Organização dos diretórios](#7-organização-dos-diretórios)
+8. [Participantes](#8-participantes)
+9. [Como executar](#9-como-executar)
+10. [Configuração](#10-configuração)
+11. [Testes](#11-testes)
+12. [Uso de inteligência artificial](#12-uso-de-inteligência-artificial)
+13. [Contribuição e fluxo de trabalho](#13-contribuição-e-fluxo-de-trabalho)
+14. [Histórico de versões](#14-histórico-de-versões)
+15. [Limitações e próximos passos](#15-limitações-e-próximos-passos)
+16. [Licença e contato](#16-licença-e-contato)
 
 ---
 
 ## 1. Descrição do projeto
 
-*Apresente o contexto, o problema e a solução proposta. Use linguagem objetiva (dois a quatro parágrafos).*
+A gestão de serviços de terraplanagem envolve o acompanhamento de máquinas, horas trabalhadas, manutenções e obras. O controle dessas informações de forma manual pode dificultar o acompanhamento das atividades e gerar problemas no controle de horas e manutenções.
 
-[Descreva o que o sistema faz, para quem ele se destina e qual problema ele resolve.]
+O **Gestão Ás Terraplanagem** é uma aplicação web desenvolvida em **Python e Django** para auxiliar no controle dessas informações.
+
+O sistema permite registrar máquinas, obras, horas trabalhadas e ordens de serviço, além de disponibilizar informações de clima e endereço por meio de APIs externas.
+
+A aplicação também possui uma API REST desenvolvida com **Django REST Framework (DRF)**.
 
 ### Objetivos
 
-*Liste os objetivos gerais e específicos do projeto.*
+O objetivo principal é desenvolver uma aplicação para auxiliar no controle de máquinas e atividades realizadas em obras de terraplanagem.
 
-- **Objetivo geral:** [Ex.: desenvolver uma aplicação web para gerenciar reservas de laboratórios.]
-- **Objetivos específicos:**
-  - [Ex.: permitir cadastro e autenticação de usuários.]
-  - [Ex.: registrar e consultar reservas por data e laboratório.]
-  - [Ex.: gerar relatórios de ocupação.]
+Entre os principais objetivos estão:
+
+* Registrar o horímetro inicial e final das máquinas.
+* Controlar as horas trabalhadas em cada obra.
+* Acompanhar manutenções preventivas e corretivas.
+* Cadastrar clientes e obras.
+* Buscar automaticamente dados de endereço através do CEP.
+* Consultar informações climáticas dos locais das obras.
+* Disponibilizar uma API REST para acesso aos dados.
 
 ### Público-alvo
 
-- [Ex.: estudantes da instituição]
-- [Ex.: professores responsáveis pelos laboratórios]
-- [Ex.: equipe administrativa]
+O sistema foi pensado para os seguintes usuários:
+
+* **Engenheiros e gerentes de obras:** acompanhamento das obras e equipamentos.
+* **Apontadores e operadores:** registro das horas trabalhadas.
+* **Mecânicos e responsáveis pela frota:** controle das ordens de serviço.
+* **Clientes:** consulta de informações e relatórios relacionados às horas trabalhadas.
 
 ---
 
 ## 2. Funcionalidades
 
-*Liste as funções implementadas (ou previstas) no sistema. Marque o status de cada uma.*
-
-| Funcionalidade | Descrição | Status |
-| --- | --- | --- |
-| [Ex.: Autenticação] | [Ex.: login, logout e recuperação de senha] | [Implementada / Em andamento / Planejada] |
-| [Ex.: Cadastro de usuários] | [Ex.: criação e edição de perfis] | [Implementada / Em andamento / Planejada] |
-| [Ex.: Relatórios] | [Ex.: exportação em PDF] | [Implementada / Em andamento / Planejada] |
+| Funcionalidade             | Descrição                                           | Status       |
+| -------------------------- | --------------------------------------------------- | ------------ |
+| Autenticação               | Login, logout e controle de usuários                | Implementada |
+| Gestão de clientes e obras | Cadastro e gerenciamento de obras                   | Implementada |
+| Gestão de frota            | Cadastro e acompanhamento das máquinas              | Implementada |
+| Horímetro                  | Registro das horas iniciais e finais das máquinas   | Implementada |
+| Ordens de serviço          | Registro de manutenções preventivas e corretivas    | Implementada |
+| ViaCEP                     | Preenchimento automático de endereço através do CEP | Implementada |
+| OpenWeatherMap             | Consulta das condições climáticas                   | Implementada |
+| API REST                   | Endpoints para acesso aos dados do sistema          | Implementada |
 
 ### Requisitos não funcionais
 
-*Informe restrições de qualidade, quando existirem.*
-
-- **Desempenho:** [Ex.: respostas da API em menos de 2 segundos]
-- **Segurança:** [Ex.: senhas armazenadas com hash; HTTPS em produção]
-- **Usabilidade:** [Ex.: interface responsiva para desktop e celular]
-- **Disponibilidade:** [Ex.: uso em ambiente local / laboratório da disciplina]
+* **Desempenho:** os endpoints da API devem responder em menos de 300 ms.
+* **Segurança:** utilização de autenticação JWT e variáveis sensíveis armazenadas em `.env`.
+* **Usabilidade:** interface responsiva para utilização em computadores e tablets.
+* **Execução:** utilização de Docker para facilitar a configuração do ambiente.
 
 ---
 
 ## 3. Demonstração
 
-*Inclua capturas de tela, GIF ou link para vídeo. Coloque as imagens em `images/`.*
+As imagens utilizadas na documentação estão disponíveis no diretório `images/`.
 
-![Tela principal](images/[screenshot-principal].png)
+| Tela               | Descrição                                         |
+| ------------------ | ------------------------------------------------- |
+| Dashboard          | Exibe informações gerais sobre a frota e as obras |
+| Apontamento diário | Permite registrar o horímetro das máquinas        |
+| Ordens de serviço  | Permite acompanhar as manutenções                 |
 
-| Tela | Descrição |
-| --- | --- |
-| [Login] | [Acesso ao sistema com e-mail e senha] |
-| [Painel] | [Visão geral das reservas do dia] |
+Repositório:
 
-**Vídeo / protótipo:** [URL do YouTube, Loom ou Figma]
+https://github.com/luis-britto/ProjetoWeb
 
 ---
 
 ## 4. Tecnologias utilizadas
 
-*Informe as tecnologias de fato usadas no projeto. Remova as linhas que não se aplicarem.*
-
-| Camada | Tecnologia | Versão |
-| --- | --- | --- |
-| Linguagem | [Ex.: Python, Java, TypeScript] | [Ex.: 3.12] |
-| Frontend | [Ex.: HTML, CSS, React] | [Ex.: 18] |
-| Backend | [Ex.: Flask, Spring Boot, Node.js] | [Ex.: 3.x] |
-| Banco de dados | [Ex.: PostgreSQL, SQLite, MongoDB] | [Ex.: 16] |
-| Testes | [Ex.: pytest, JUnit, Jest] | [Ex.: 8] |
-| Infraestrutura | [Ex.: Docker, GitHub Actions] | — |
-| Outras ferramentas | [Ex.: Git, Figma, Postman] | — |
+| Categoria       | Tecnologia               |
+| --------------- | ------------------------ |
+| Linguagem       | Python 3.11+             |
+| Backend         | Django                   |
+| API             | Django REST Framework    |
+| Frontend        | HTML5, CSS, JavaScript   |
+| Banco de dados  | PostgreSQL / SQLite      |
+| Testes          | pytest-django / unittest |
+| Servidor        | Gunicorn                 |
+| Proxy           | Nginx                    |
+| Containerização | Docker / Docker Compose  |
+| Versionamento   | Git / GitHub             |
+| Testes de API   | Postman                  |
+| APIs externas   | ViaCEP / OpenWeatherMap  |
 
 ---
 
 ## 5. Arquitetura
 
-*Explique como o sistema está organizado: camadas, principais componentes e o fluxo entre eles. Inclua um diagrama no PDF de arquitetura ou de classes em `docs/` e descreva-o em texto.*
+A aplicação utiliza o padrão **MVT (Model-View-Template)** do Django.
 
-[Ex.: a solução segue uma arquitetura em camadas (apresentação, aplicação, domínio e persistência). O frontend consome uma API REST. O backend aplica as regras de negócio e persiste os dados no banco.]
+O Django é responsável pela aplicação web e o Django REST Framework é utilizado para disponibilizar os endpoints da API.
 
 ```text
-[Usuário] → [Interface / Frontend] → [API / Backend] → [Banco de dados]
+Usuário
+   |
+   v
+Nginx
+   |
+   v
+Gunicorn
+   |
+   v
+Aplicação Django
+   |
+   +-------------------+
+   |                   |
+   v                   v
+PostgreSQL        APIs externas
+                  |
+                  +-- ViaCEP
+                  |
+                  +-- OpenWeatherMap
 ```
-
-**Decisões relevantes:**
-
-- [Ex.: uso de API REST para separar cliente e servidor.]
-- [Ex.: persistência relacional porque os dados possuem relacionamentos bem definidos.]
-
-### Endpoints principais (quando houver API)
-
-| Método | Rota | Descrição |
-| --- | --- | --- |
-| `POST` | `/api/[recurso]` | [Ex.: criar um registro] |
-| `GET` | `/api/[recurso]` | [Ex.: listar registros] |
-| `GET` | `/api/[recurso]/{id}` | [Ex.: obter um registro] |
-| `PUT` | `/api/[recurso]/{id}` | [Ex.: atualizar um registro] |
-| `DELETE` | `/api/[recurso]/{id}` | [Ex.: remover um registro] |
-
-Documentação completa da API: [link para Swagger, Postman ou `docs/api.md`]
 
 ---
 
 ## 6. Organização dos diretórios
 
-*Mantenha a árvore alinhada à estrutura real do repositório. Ajuste pastas conforme o tipo de projeto.*
-
 ```text
 .
-├── README.md                 # Documentação principal do projeto
-├── .env.example              # Modelo de variáveis de ambiente (sem segredos)
-├── docs/                     # Modelagem e demais artefatos técnicos (PDF)
-│   ├── README.pdf            # Índice da pasta docs/
-│   └── modelagem/
-│       ├── casos-de-uso/
-│       │   └── especificacoes-casos-de-uso.pdf
-│       ├── classes/
-│       │   └── diagrama-de-classes.pdf
-│       └── banco-de-dados/
-│           ├── diagrama-er.pdf
-│           └── modelo-logico.pdf
-├── images/                   # Figuras da documentação geral (ex.: política de IA)
-├── src/                      # Código-fonte da aplicação
-│   ├── frontend/             # Interface com o usuário (quando houver)
-│   └── backend/              # Regras de negócio, API e acesso a dados (quando houver)
-├── tests/                    # Testes automatizados
-└── scripts/                  # Scripts auxiliares de setup, build ou deploy
+├── README.md
+├── .env.example
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+│
+├── docs/
+│   ├── visao/
+│   │   └── documento_de_visao.md
+│   ├── casos-de-uso/
+│   │   └── especificacao_casos_de_uso.md
+│   ├── arquitetura/
+│   │   └── arquitetura_aplicacao.md
+│   ├── banco-de-dados/
+│   │   └── modelo_relacional_der.md
+│   ├── api/
+│   │   ├── contrato_api_propria.md
+│   │   └── plano_integracao_externa.md
+│   ├── prototipos/
+│   │   └── identidade_visual_e_prototipos.md
+│   └── planejamento/
+│       └── planejamento_fase2.md
+│
+├── images/
+├── src/
+└── tests/
 ```
 
-| Diretório / arquivo | Função |
-| --- | --- |
-| `README.md` | Apresentação do projeto, objetivos, tecnologias e instruções de uso |
-| `.env.example` | Lista das variáveis necessárias, sem credenciais reais |
-| `docs/` | Artefatos de análise e modelagem em PDF |
-| `docs/modelagem/` | Casos de uso, classes e modelo de dados (diagramas embutidos nos PDFs) |
-| `images/` | Figuras da documentação geral do repositório (não usar para diagramas de modelagem) |
-| `src/` | Código-fonte organizado por camada ou módulo |
-| `tests/` | Casos de teste e evidências de verificação |
-| `scripts/` | Automação de ambiente e execução |
+### Principais arquivos e diretórios
+
+| Arquivo / Diretório | Descrição                           |
+| ------------------- | ----------------------------------- |
+| `README.md`         | Documentação do projeto             |
+| `.env.example`      | Exemplo das variáveis de ambiente   |
+| `docs/`             | Documentação e materiais do projeto |
+| `images/`           | Imagens utilizadas na documentação  |
+| `src/`              | Código-fonte da aplicação           |
+| `tests/`            | Testes automatizados                |
 
 ---
 
 ## 7. Participantes
 
-*Informe nome completo, função no grupo e, se houver, o identificador acadêmico (matrícula).*
-
-| Nome | Matrícula | Função no projeto |
-| --- | --- | --- |
-| [Nome completo] | [000000] | [Ex.: coordenação / backend / frontend / testes / documentação] |
-| [Nome completo] | [000000] | [Ex.: backend] |
-| [Nome completo] | [000000] | [Ex.: frontend] |
-| [Nome completo] | [000000] | [Ex.: testes e documentação] |
-
-**Professor(a) responsável:** [Nome completo]
+| Nome                        | Matrícula | Função                                                        |
+| --------------------------- | --------: | ------------------------------------------------------------- |
+| João Lucas Trindade Diniz   |  22605421 | Coordenação, Backend, Modelagem de Dados, API REST e Testes   |
+| Cauã Medeiros Alegre        |  22553411 | Backend, lógica de horímetro e manutenções                    |
+| Luís Otávio Da Costa Britto |  22553336 | Frontend, Templates Django, integrações de API e documentação |
 
 ---
 
 ## 8. Como executar
 
-*Preencha com os comandos reais do projeto para que outra pessoa consiga reproduzir o ambiente.*
-
 ### Pré-requisitos
 
-- [Ex.: Git]
-- [Ex.: Python 3.12+]
-- [Ex.: Node.js 20+]
-- [Ex.: Docker]
+* Git
+* Python 3.11+
+* Docker
+* Docker Compose
 
-### Instalação e execução
+Clonar o projeto
+git clone https://github.com/luis-britto/ProjetoWeb.git
+cd ProjetoWeb
+Configurar o ambiente
 
-```bash
-# 1. Clonar o repositório
-git clone [URL_DO_REPOSITORIO]
-cd [NOME_DA_PASTA]
+Copie o arquivo .env.example:
 
-# 2. Instalar dependências
-[comando de instalação]
-
-# 3. Configurar variáveis de ambiente
 cp .env.example .env
-# edite o arquivo .env com as credenciais locais
 
-# 4. Executar a aplicação
-[comando de execução]
-```
+Depois, configure as variáveis necessárias no arquivo .env.
 
-**Acesso local:** [Ex.: http://localhost:3000]
+Executar com Docker
+docker-compose up -d --build
+Executar as migrações
+docker-compose exec web python manage.py migrate
+Criar usuário administrador
+docker-compose exec web python manage.py createsuperuser
+9. Configuração
 
-### Implantação (quando houver)
+As principais variáveis utilizadas pela aplicação são:
 
-- **Ambiente:** [Ex.: Render, Railway, Vercel, servidor da instituição]
-- **URL de produção:** [https://...]
-- **Observações:** [Ex.: é necessário configurar as variáveis de ambiente no painel do provedor]
+Variável	Obrigatória	Descrição
+SECRET_KEY	Sim	Chave de segurança do Django
+DEBUG	Sim	Define o modo de desenvolvimento
+DATABASE_URL	Sim	URL de conexão com o banco
+OPENWEATHER_API_KEY	Sim	Chave de acesso à API OpenWeatherMap
 
----
+As credenciais reais não devem ser adicionadas ao repositório.
 
-## 9. Configuração
+10. Testes
 
-*Liste as variáveis de ambiente usadas pelo sistema. Nunca publique senhas, tokens ou chaves neste arquivo.*
+Para executar os testes:
 
-| Variável | Obrigatória | Descrição | Exemplo |
-| --- | --- | --- | --- |
-| `PORT` | Sim | Porta da aplicação | `3000` |
-| `DATABASE_URL` | Sim | Conexão com o banco | `postgresql://user:senha@localhost:5432/app` |
-| `SECRET_KEY` | Sim | Chave de sessão / JWT | `[gerar localmente]` |
+docker-compose exec web pytest
 
-Credenciais reais devem ficar apenas no arquivo `.env` (não versionado).
+Os testes são utilizados para verificar principalmente:
 
----
+Validação do horímetro.
+Métodos dos models.
+Endpoints da API.
+Autenticação JWT.
+Integração com o ViaCEP.
 
-## 10. Testes
+Também são realizados testes manuais dos principais fluxos da aplicação.
 
-*Descreva como executar os testes e o que eles cobrem.*
+11. Uso de inteligência artificial
 
-```bash
-[comando para executar os testes]
-```
+Durante o desenvolvimento do projeto foram utilizadas ferramentas de inteligência artificial como apoio em algumas atividades.
 
-| Tipo | Ferramenta | O que verifica |
-| --- | --- | --- |
-| Unitários | [Ex.: pytest / JUnit / Jest] | [Ex.: regras de negócio isoladas] |
-| Integração | [Ex.: ...] | [Ex.: API e banco de dados] |
-| Manuais | [Ex.: checklist em `docs/`] | [Ex.: fluxos principais da interface] |
+Ferramentas utilizadas
+ChatGPT
+Google Gemini
+Utilização
 
-**Cobertura atual:** [Ex.: 70% / não medida]
+As ferramentas foram utilizadas principalmente para:
 
----
+Revisão de textos;
+Formatação de documentos Markdown;
+Auxílio na elaboração inicial de alguns documentos;
+Apoio na estruturação de contratos JSON da API.
 
-## 11. Uso de inteligência artificial
+As decisões relacionadas às regras de negócio, arquitetura, modelagem do banco de dados e implementação das principais funcionalidades foram realizadas pela equipe.
 
-Este repositório segue a política de uso de IA da disciplina (semáforo pedagógico):
+12. Contribuição e fluxo de trabalho
 
-![Política de uso de IA — semáforo](images/semaforo.png)
+O projeto utiliza duas branches principais:
 
-| Situação | Significado |
-| --- | --- |
-| **Vermelho — uso proibido** | Atividades de autonomia intelectual (ex.: provas presenciais sem consulta). |
-| **Amarelo — uso limitado** | IA pode ser ferramenta auxiliar, desde que haja declaração de uso. |
-| **Verde — uso permitido** | Uso livre ao longo da atividade acadêmica. |
+main
+└── Versão estável
 
-### Declaração de uso
+develop
+└── Desenvolvimento e integração das funcionalidades
 
-*Preencha de forma honesta. Se não houve uso de IA, declare explicitamente.*
+Os commits seguem o padrão:
 
-- **Houve uso de IA neste projeto?** [Sim / Não]
-- **Ferramentas utilizadas:** [Ex.: ChatGPT, GitHub Copilot, Gemini — ou “nenhuma”]
-- **Finalidade:** [Ex.: revisão de texto, geração de esboço de testes, esclarecimento de dúvidas de sintaxe]
-- **O que NÃO foi delegado à IA:** [Ex.: definição do problema, modelagem, implementação das regras de negócio, testes finais]
+feat: adiciona nova funcionalidade
+fix: corrige problema
+docs: atualiza documentação
+13. Histórico de versões
+Versão	Data	Descrição
+1.0.0	04/10/2026	Entrega da Fase 1, documentação, arquitetura, modelo ER e endpoints da API
+0.1.0	20/09/2026	Estrutura inicial do projeto
+14. Limitações e próximos passos
+Limitações atuais
 
----
+Atualmente, algumas funcionalidades dependem de conexão com a internet, principalmente as consultas realizadas nas APIs externas.
 
-## 12. Contribuição e fluxo de trabalho
+Próximos passos
 
-*Padronize o trabalho em equipe. Ajuste as regras ao combinado da disciplina.*
+Implementar suporte offline para o aplicativo de campo.
 
-### Branches
+Implementar exportação dos relatórios em PDF.
 
-- `main` — versão estável para avaliação
-- `develop` — integração do grupo *(opcional)*
-- `feat/[nome]` — nova funcionalidade
-- `fix/[nome]` — correção de defeito
-- `docs/[nome]` — alterações só de documentação
+Implementar exportação dos relatórios em Excel.
 
-### Commits
+15. Licença e contato
+Licença
 
-Use mensagens curtas e no imperativo, por exemplo:
+Projeto desenvolvido para fins acadêmicos no UniCEUB.
 
-- `feat: adiciona cadastro de reservas`
-- `fix: corrige validação de data`
-- `docs: atualiza instruções de execução`
+Documentação
+Documento de Visão
+Casos de Uso
+Arquitetura
+Modelo Relacional
+Contrato da API
+Contato
 
-### Passos sugeridos
-
-1. Criar uma branch a partir de `main`.
-2. Implementar e testar localmente.
-3. Abrir um *pull request* / *merge request* para revisão do grupo.
-4. Só então integrar à branch principal.
-
-**Issues e quadro de tarefas:** [link do GitHub Projects, Trello ou similar]
-
----
-
-## 13. Histórico de versões
-
-*Registre entregas relevantes (sprints, checkpoints ou versões avaliadas).*
-
-| Versão | Data | Descrição |
-| --- | --- | --- |
-| `0.1.0` | [AAAA-MM-DD] | [Ex.: primeira versão executável / MVP] |
-| `0.0.1` | [AAAA-MM-DD] | [Ex.: estrutura inicial do repositório] |
-
----
-
-## 14. Limitações e próximos passos
-
-### Problemas conhecidos
-
-- [Ex.: a recuperação de senha ainda não envia e-mail]
-- [Ex.: o layout quebra em telas menores que 360 px]
-
-### Roadmap
-
-- [ ] [Ex.: autenticação com dois fatores]
-- [ ] [Ex.: exportação de relatórios em CSV]
-- [ ] [Ex.: implantação em ambiente de homologação]
-
----
-
-## 15. Licença, referências e contato
-
-**Licença:** [Ex.: uso exclusivamente acadêmico / MIT / outro]
-
-Este material destina-se a fins educacionais. Verifique com a disciplina se o código pode ser reutilizado fora do curso.
-
-### Documentação complementar
-
-- Índice da pasta `docs/`: [`docs/README.pdf`](docs/README.pdf)
-- Casos de uso (diagrama + especificações): [`docs/modelagem/casos-de-uso/especificacoes-casos-de-uso.pdf`](docs/modelagem/casos-de-uso/especificacoes-casos-de-uso.pdf)
-- Diagrama de classes: [`docs/modelagem/classes/diagrama-de-classes.pdf`](docs/modelagem/classes/diagrama-de-classes.pdf)
-- Modelo conceitual (ER): [`docs/modelagem/banco-de-dados/diagrama-er.pdf`](docs/modelagem/banco-de-dados/diagrama-er.pdf)
-- Modelo lógico: [`docs/modelagem/banco-de-dados/modelo-logico.pdf`](docs/modelagem/banco-de-dados/modelo-logico.pdf)
-- Apresentação: [`docs/apresentacao.pdf`](docs/)
-
-### Referências
-
-- [Autor. Título. Ano. URL ou dados bibliográficos.]
-- [Documentação oficial da tecnologia X.]
-
-### Contato
-
-Dúvidas sobre o projeto: [e-mail institucional do grupo ou issue no repositório]
-
-**Agradecimentos:** [Ex.: professor(a), monitoria, materiais da disciplina]
+lucas.diniz19@sempreceub.com
+Issues: GitHub Issues
