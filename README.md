@@ -225,8 +225,11 @@ PostgreSQL        APIs externas
 * Docker Compose
 
 Clonar o projeto
+
 git clone https://github.com/luis-britto/ProjetoWeb.git
+
 cd ProjetoWeb
+
 Configurar o ambiente
 
 Copie o arquivo .env.example:
@@ -237,10 +240,13 @@ Depois, configure as variáveis necessárias no arquivo .env.
 
 Executar com Docker
 docker-compose up -d --build
+
 Executar as migrações
 docker-compose exec web python manage.py migrate
+
 Criar usuário administrador
 docker-compose exec web python manage.py createsuperuser
+
 9. Configuração
 
 As principais variáveis utilizadas pela aplicação são:
